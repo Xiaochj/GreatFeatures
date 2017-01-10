@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
+import com.xiaochj.greatfeatures.network.okhttp.OkhttpTest;
 import com.xiaochj.greatfeatures.network.retrofit.RetrofitTest;
 
 public class MainActivity extends ListActivity {
@@ -30,6 +30,10 @@ public class MainActivity extends ListActivity {
                 intent = new Intent(this, RetrofitTest.class);
                 startActivity(intent);
                break;
+            case 2:
+                intent = new Intent(this, OkhttpTest.class);
+                startActivity(intent);
+                break;
         }
     }
 }

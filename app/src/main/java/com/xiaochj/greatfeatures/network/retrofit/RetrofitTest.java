@@ -6,6 +6,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.xiaochj.greatfeatures.MainApplication;
 import com.xiaochj.greatfeatures.R;
 
 import retrofit2.Call;
@@ -21,7 +22,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitTest extends Activity{
 
-    private static final String URL = "https://api.github.com/";
     private static final String USER = "Xiaochj";
     private Retrofit retrofit;
     private RetrofitImpl retrofitImpl;
@@ -50,7 +50,7 @@ public class RetrofitTest extends Activity{
     }
 
     private void loadData() {
-        retrofit = new Retrofit.Builder().baseUrl(URL).addConverterFactory(GsonConverterFactory.create()).build();
+        retrofit = new Retrofit.Builder().baseUrl(MainApplication.GITHUB_URL).addConverterFactory(GsonConverterFactory.create()).build();
         retrofitImpl = retrofit.create(RetrofitImpl.class);
         userBeanCall = retrofitImpl.getUserInfo(USER);
         userBeanCall.enqueue(new Callback<UserBean>() {

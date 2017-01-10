@@ -30,4 +30,8 @@ dependencies {
     //retorfit
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    //okhttp
+    compile 'com.squareup.okhttp3:okhttp:3.5.0'
+    //volley
+    compile 'com.mcxiaoke.volley:library:1.0.19'
 }
