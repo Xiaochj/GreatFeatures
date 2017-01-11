@@ -18,10 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".network.retrofit.RetrofitTest">
-        </activity>
-        <activity android:name=".network.okhttp.OkhttpTest">
-        </activity>
+        <activity android:name=".network.retrofit.RetrofitTest"></activity>
+        <activity android:name=".network.okhttp.OkhttpTest"></activity>
+        <activity android:name=".network.volley.VolleyTest"></activity>
     </application>
 
 </manifest>

@@ -9,6 +9,7 @@ import android.widget.ListView;
 
 import com.xiaochj.greatfeatures.network.okhttp.OkhttpTest;
 import com.xiaochj.greatfeatures.network.retrofit.RetrofitTest;
+import com.xiaochj.greatfeatures.network.volley.VolleyTest;
 
 public class MainActivity extends ListActivity {
 
@@ -30,6 +31,10 @@ public class MainActivity extends ListActivity {
                 intent = new Intent(this, RetrofitTest.class);
                 startActivity(intent);
                break;
+            case 1:
+                intent = new Intent(this, VolleyTest.class);
+                startActivity(intent);
+                break;
             case 2:
                 intent = new Intent(this, OkhttpTest.class);
                 startActivity(intent);
