@@ -21,6 +21,9 @@
         <activity android:name=".network.retrofit.RetrofitTest"></activity>
         <activity android:name=".network.okhttp.OkhttpTest"></activity>
         <activity android:name=".network.volley.VolleyTest"></activity>
+        <activity android:name=".imageframe.glide.GlideTest"></activity>
+        <activity android:name=".imageframe.uil.UilTest"></activity>
+
     </application>
 
 </manifest>

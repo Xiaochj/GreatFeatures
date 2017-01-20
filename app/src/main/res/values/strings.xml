@@ -5,5 +5,7 @@
         <item>retrofit</item>
         <item>volley</item>
         <item>okhttp</item>
+        <item>Glide</item>
+        <item>Universal-ImageLoader</item>
     </string-array>
 </resources>

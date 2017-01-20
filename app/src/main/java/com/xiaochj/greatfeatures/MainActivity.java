@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.xiaochj.greatfeatures.imageframe.glide.GlideTest;
+import com.xiaochj.greatfeatures.imageframe.uil.UilTest;
 import com.xiaochj.greatfeatures.network.okhttp.OkhttpTest;
 import com.xiaochj.greatfeatures.network.retrofit.RetrofitTest;
 import com.xiaochj.greatfeatures.network.volley.VolleyTest;
@@ -37,6 +39,14 @@ public class MainActivity extends ListActivity {
                 break;
             case 2:
                 intent = new Intent(this, OkhttpTest.class);
+                startActivity(intent);
+                break;
+            case 3:
+                intent = new Intent(this, GlideTest.class);
+                startActivity(intent);
+                break;
+            case 4:
+                intent = new Intent(this, UilTest.class);
                 startActivity(intent);
                 break;
         }
