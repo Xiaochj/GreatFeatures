@@ -1,6 +1,5 @@
 package com.xiaochj.greatfeatures.network.retrofit;
 
-import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
@@ -10,7 +9,6 @@ import retrofit2.http.Path;
 
 interface RetrofitImpl {
 
-    @GET("users/{user}")
-    Call<UserBean> getUserInfo(@Path("user") String user);
+    @GET("users/{user}") rx.Observable<UserBean> getUserInfo(@Path("user") String user);
 
 }
