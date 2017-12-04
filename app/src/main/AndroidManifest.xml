@@ -23,6 +23,7 @@
         <activity android:name=".network.volley.VolleyTest"></activity>
         <activity android:name=".imageframe.glide.GlideTest"></activity>
         <activity android:name=".imageframe.uil.UilTest"></activity>
+        <activity android:name=".animations.pulltorefresh.PullToRefreshTest"></activity>
 
     </application>
 

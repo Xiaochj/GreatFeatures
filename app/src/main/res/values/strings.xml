@@ -7,5 +7,6 @@
         <item>okhttp</item>
         <item>Glide</item>
         <item>Universal-ImageLoader</item>
+        <item>pull-to-refresh</item>
     </string-array>
 </resources>
