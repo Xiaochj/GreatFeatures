@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.xiaochj.greatfeatures.aidl.AIdlClient;
 import com.xiaochj.greatfeatures.animations.pulltorefresh.PullToRefreshTest;
 import com.xiaochj.greatfeatures.imageframe.glide.GlideTest;
 import com.xiaochj.greatfeatures.imageframe.uil.UilTest;
@@ -53,6 +54,9 @@ public class MainActivity extends ListActivity {
         intent = new Intent(this, PullToRefreshTest.class);
         startActivity(intent);
         break;
+      case 6:
+        intent = new Intent(this, AIdlClient.class);
+        startActivity(intent);
     }
   }
 }

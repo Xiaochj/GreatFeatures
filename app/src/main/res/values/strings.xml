@@ -8,5 +8,6 @@
         <item>Glide</item>
         <item>Universal-ImageLoader</item>
         <item>pull-to-refresh</item>
+        <item>aidl</item>
     </string-array>
 </resources>
