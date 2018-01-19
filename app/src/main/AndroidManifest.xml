@@ -24,7 +24,8 @@
     <activity android:name=".imageframe.glide.GlideTest"></activity>
     <activity android:name=".imageframe.uil.UilTest"></activity>
     <activity android:name=".animations.pulltorefresh.PullToRefreshTest"></activity>
-    <activity android:name=".aidl.AIdlClient"></activity>
+    <activity android:name=".ipc.aidl.AIdlClient"></activity>
+    <activity android:name=".ipc.messenger.MessengerClient"></activity>
   </application>
 
 </manifest>

@@ -7,10 +7,11 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.xiaochj.greatfeatures.aidl.AIdlClient;
+import com.xiaochj.greatfeatures.ipc.aidl.AIdlClient;
 import com.xiaochj.greatfeatures.animations.pulltorefresh.PullToRefreshTest;
 import com.xiaochj.greatfeatures.imageframe.glide.GlideTest;
 import com.xiaochj.greatfeatures.imageframe.uil.UilTest;
+import com.xiaochj.greatfeatures.ipc.messenger.MessengerClient;
 import com.xiaochj.greatfeatures.network.okhttp.OkhttpTest;
 import com.xiaochj.greatfeatures.network.retrofit.RetrofitTest;
 import com.xiaochj.greatfeatures.network.volley.VolleyTest;
@@ -56,6 +57,10 @@ public class MainActivity extends ListActivity {
         break;
       case 6:
         intent = new Intent(this, AIdlClient.class);
+        startActivity(intent);
+        break;
+      case 7:
+        intent = new Intent(this, MessengerClient.class);
         startActivity(intent);
     }
   }

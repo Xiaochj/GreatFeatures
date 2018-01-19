@@ -1,27 +1,28 @@
-package com.xiaochj.greatfeatures.aidl;
+package com.xiaochj.greatfeatures.ipc.messenger;
 
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
+import android.os.Messenger;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-import com.xiaochj.aidlservice.IMyAidlInterface;
 
 /**
- * Created by xiaochj on 2018/1/15.
+ * Created by xiaochj on 2018/1/19.
  */
 
-public class AIdlClient extends Activity {
+public class MessengerClient extends Activity {
 
-  IMyAidlInterface iMyAidlInterface;
-  int sum = 0;
+  Messenger messenger;
 
   @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -30,41 +31,51 @@ public class AIdlClient extends Activity {
     Button button1 = new Button(this);
     button1.setText("绑定服务");
     Button button2 = new Button(this);
-    button2.setText("aidl进程间通信");
+    button2.setText("messenger进程间通信");
     ll.addView(button1);
     ll.addView(button2);
     setContentView(ll);
     button1.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
-        //3、绑定远程服务，传递远端进程的package以及定义的service的action
         Intent intent = new Intent();
         intent.setPackage("com.xiaochj.aidlservice");
-        intent.setAction("com.xiaochj.aidl.service");
-        getApplicationContext().bindService(intent, new MyServiceConnectino(), BIND_AUTO_CREATE);
+        intent.setAction("com.xiaochj.messenger.service");
+        getApplicationContext().bindService(intent, new MyServiceConnection(), BIND_AUTO_CREATE);
         Toast.makeText(getApplicationContext(), "绑定成功", Toast.LENGTH_LONG).show();
       }
     });
     button2.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
-        Toast.makeText(getApplicationContext(), "" + sum, Toast.LENGTH_LONG).show();
+        Message msg = Message.obtain();
+        msg.replyTo = replyMessenger;
+        Bundle bundle = new Bundle();
+        bundle.putString("data","client:去打golf去吗？");
+        msg.setData(bundle);
+        try {
+          messenger.send(msg);
+        } catch (RemoteException e) {
+          e.printStackTrace();
+        }
       }
     });
   }
 
-  class MyServiceConnectino implements ServiceConnection {
+  class MyServiceConnection implements ServiceConnection{
+
     @Override public void onServiceConnected(ComponentName name, IBinder service) {
-      //4、通过asInterface的方式将binder对象转换成接口，再调用接口中的方法实现进程间的通信
-      iMyAidlInterface = IMyAidlInterface.Stub.asInterface(service);
-      try {
-        //调用接口方法
-        sum = iMyAidlInterface.add(1, 2);
-      } catch (RemoteException e) {
-        e.printStackTrace();
-      }
+        messenger = new Messenger(service);
     }
 
     @Override public void onServiceDisconnected(ComponentName name) {
 
     }
   }
+
+  Messenger replyMessenger = new Messenger(new Handler(){
+    @Override public void handleMessage(Message msg) {
+      super.handleMessage(msg);
+      Toast.makeText(getApplicationContext(),msg.getData().getString("reply"),Toast.LENGTH_LONG).show();
+    }
+  });
+
 }

@@ -22,6 +22,14 @@
         <action android:name="com.xiaochj.aidl.service"/>
       </intent-filter>
     </service>
+    <service
+        android:name="com.xiaochj.messengerservice.MessengerService"
+        android:enabled="true"
+        android:exported="true">
+      <intent-filter>
+        <action android:name="com.xiaochj.messenger.service"/>
+      </intent-filter>
+    </service>
   </application>
 
 </manifest>
