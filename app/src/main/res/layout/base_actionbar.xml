@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:id="@+id/action_bar"
+    android:background="#fafafa">
+
+  <TextView
+      android:id="@+id/left_action_view"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:drawableLeft="@drawable/base_actionbar_ic_back"
+      android:layout_centerVertical="true"
+      android:gravity="center_vertical"
+      android:paddingLeft="10dp"
+      android:paddingRight="5dp"/>
+
+  <View
+      android:id="@+id/seperator"
+      android:layout_width="0.5dp"
+      android:layout_height="12dp"
+      android:layout_toRightOf="@id/left_action_view"
+      android:layout_centerVertical="true"
+      android:background="#C4C4C4"
+      />
+
+  <TextView
+      android:id="@+id/title"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerVertical="true"
+      android:layout_toRightOf="@id/seperator"
+      android:layout_marginLeft="10dp"
+      android:textSize="16sp"
+      android:textColor="#333333"/>
+  <TextView
+      android:id="@+id/right_action_view"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentRight="true"
+      android:layout_centerVertical="true"
+      android:layout_marginRight="10dp"
+      android:textSize="13sp"
+      android:textColor="#333333"/>
+
+</RelativeLayout>
