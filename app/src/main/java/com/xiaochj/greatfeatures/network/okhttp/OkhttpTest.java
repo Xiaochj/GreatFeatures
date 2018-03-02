@@ -1,6 +1,5 @@
 package com.xiaochj.greatfeatures.network.okhttp;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.FrameLayout;
@@ -8,12 +7,10 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.xiaochj.greatfeatures.MainApplication;
 import com.xiaochj.greatfeatures.R;
-
+import com.xiaochj.greatfeatures.templet.base.BaseActivity;
 import java.io.IOException;
-
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.MediaType;
@@ -27,7 +24,7 @@ import okhttp3.Response;
  * Created by xiaochj on 17/1/10.
  */
 
-public class OkhttpTest extends Activity {
+public class OkhttpTest extends BaseActivity {
 
     public static final MediaType JSON
             = MediaType.parse("application/json; charset=utf-8");
@@ -55,6 +52,9 @@ public class OkhttpTest extends Activity {
         mLinearLayout.addView(mPostTv);
         mScrollView.addView(mLinearLayout);
         this.setContentView(mScrollView);
+        this.setActionbarBackgroundResource(R.color.colorPrimaryDark);
+        this.setActionbarTitle("OkHttptest");
+        this.setActionbarTitleColor(Color.WHITE);
     }
 
     private void loadData(){

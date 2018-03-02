@@ -3,9 +3,11 @@ package com.xiaochj.greatfeatures.templet.base;
 import android.app.Dialog;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v4.app.FragmentActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -57,6 +59,7 @@ public class BaseActivity extends FragmentActivity implements ActionbarImpl, Dia
       LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
       parent.setLayoutParams(layoutParams);
       addActionBarView(parent);
+      parent.addView(LayoutInflater.from(this).inflate(layoutResID, null));
       try {
         super.setContentView(parent);
       } catch (Exception var9) {
@@ -86,6 +89,7 @@ public class BaseActivity extends FragmentActivity implements ActionbarImpl, Dia
       LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
       parent.setLayoutParams(layoutParams);
       addActionBarView(parent);
+      parent.addView(view);
       super.setContentView(parent);
     } else {
       super.setContentView(view);
@@ -97,6 +101,7 @@ public class BaseActivity extends FragmentActivity implements ActionbarImpl, Dia
       LinearLayout parent = new LinearLayout(this);
       parent.setLayoutParams(params);
       addActionBarView(parent);
+      parent.addView(view, params);
       super.setContentView(parent);
     } else {
       super.setContentView(view, params);
@@ -110,7 +115,7 @@ public class BaseActivity extends FragmentActivity implements ActionbarImpl, Dia
   }
 
   @Override public boolean showDialog() {
-    if(this.isFinishing()) {
+    if (this.isFinishing()) {
       return false;
     } else {
       DialogUtils.dismissDialog(this.mProcessDialog);
@@ -120,7 +125,7 @@ public class BaseActivity extends FragmentActivity implements ActionbarImpl, Dia
   }
 
   @Override public boolean dismissDialog() {
-    if(this.isFinishing()) {
+    if (this.isFinishing()) {
       return false;
     } else {
       DialogUtils.dismissDialog(this.mProcessDialog);
@@ -134,79 +139,95 @@ public class BaseActivity extends FragmentActivity implements ActionbarImpl, Dia
   }
 
   @Override public void showToast(String message) {
-    Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG).show();
+    Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
   }
 
   @Override public void showToast(int message) {
-    Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG).show();
+    Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
   }
 
   //@Override public void showToastOnCenter(String message) {
   //
   //}
 
+  //@Override public void setActionbarEnabled(boolean isEnable){
+  //  if(mActionBarView != null){
+  //    if(isEnable){
+  //      mActionBarView.setVisibility(View.VISIBLE);
+  //    }else {
+  //      mActionBarView.setVisibility(View.GONE);
+  //    }
+  //  }
+  //}
+
   @Override public boolean isActionbarEnabled() {
-    return false;
+    return true;
   }
 
   @Override public void setActionbarBackgroundColor(int color) {
-    if(mActionBarView!= null)
-      mActionBarView.setActionbarBackgroundColor(color);
+    if (mActionBarView != null) mActionBarView.setActionbarBackgroundColor(color);
   }
 
   @Override public void setActionbarBackgroundResource(int resId) {
-    if(mActionBarView != null)
-      mActionBarView.setActionbarBackgroundResource(resId);
+    if (mActionBarView != null) mActionBarView.setActionbarBackgroundResource(resId);
   }
 
   @Override public void setActionbarBackground(Drawable background) {
-    if(mActionBarView != null)
-      mActionBarView.setActionbarBackground(background);
+    if (mActionBarView != null) mActionBarView.setActionbarBackground(background);
   }
 
   @Override public TextView setRightActionViewText(int text, View.OnClickListener onClickListener) {
-    return mActionBarView != null ? mActionBarView.setRightActionView(text,0,onClickListener) : null;
+    return mActionBarView != null ? mActionBarView.setRightActionView(text, 0, onClickListener)
+        : null;
   }
 
   @Override
   public TextView setRightActionViewText(CharSequence text, View.OnClickListener onClickListener) {
-    return mActionBarView != null ? mActionBarView.setRightActionView(text,0,onClickListener) : null;
+    return mActionBarView != null ? mActionBarView.setRightActionView(text, 0, onClickListener)
+        : null;
   }
 
   @Override public TextView setRightActionViewText(int text, int textColorResId,
       View.OnClickListener onClickListener) {
-    return mActionBarView != null ? mActionBarView.setRightActionView(text,textColorResId,onClickListener) : null;
+    return mActionBarView != null ? mActionBarView.setRightActionView(text, textColorResId,
+        onClickListener) : null;
   }
 
   @Override public TextView setRightActionViewText(CharSequence text, int textColorResId,
       View.OnClickListener onClickListener) {
-    return mActionBarView != null ? mActionBarView.setRightActionView(text,0,onClickListener) : null;
+    return mActionBarView != null ? mActionBarView.setRightActionView(text, 0, onClickListener)
+        : null;
   }
 
   @Override public TextView SetRightActionViewDrawable(int drawableResId,
       View.OnClickListener onClickListener) {
-    return this.mActionBarView != null?this.mActionBarView.setRightActionView(drawableResId, onClickListener):null;
+    return this.mActionBarView != null ? this.mActionBarView.setRightActionView(drawableResId,
+        onClickListener) : null;
   }
 
   @Override public TextView setActionbarTitle(CharSequence title) {
-    return this.mActionBarView != null?this.mActionBarView.setTitle(title):null;
+    return this.mActionBarView != null ? this.mActionBarView.setTitle(title) : null;
   }
 
   @Override public TextView setActionbarTitle(@StringRes int textId) {
-    return this.mActionBarView != null?this.mActionBarView.setTitle(textId):null;
+    return this.mActionBarView != null ? this.mActionBarView.setTitle(textId) : null;
+  }
+
+  @Override public TextView setActionbarTitleColor(@ColorInt int color) {
+    return mActionBarView != null ? mActionBarView.setTitleColor(color) : null;
   }
 
   @Override public TextView setBackClickListener(View.OnClickListener listener) {
-    return this.mActionBarView != null?this.mActionBarView.setBackClickListener(listener):null;
+    return this.mActionBarView != null ? this.mActionBarView.setBackClickListener(listener) : null;
   }
 
   @Override public TextView setBackClickListener(int drawableResId, View.OnClickListener listener) {
     TextView textView = null;
-    if(this.mActionBarView != null) {
+    if (this.mActionBarView != null) {
       textView = this.mActionBarView.setBackClickListener(listener);
     }
 
-    if(textView != null) {
+    if (textView != null) {
       textView.setCompoundDrawablesWithIntrinsicBounds(drawableResId, 0, 0, 0);
     }
     return textView;
@@ -214,12 +235,13 @@ public class BaseActivity extends FragmentActivity implements ActionbarImpl, Dia
 
   @Override public TextView setBackClickListener(Drawable drawable, View.OnClickListener listener) {
     TextView textView = null;
-    if(this.mActionBarView != null) {
+    if (this.mActionBarView != null) {
       textView = this.mActionBarView.setBackClickListener(listener);
     }
 
-    if(textView != null) {
-      textView.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable)null, (Drawable)null, (Drawable)null);
+    if (textView != null) {
+      textView.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null,
+          (Drawable) null);
     }
     return textView;
   }

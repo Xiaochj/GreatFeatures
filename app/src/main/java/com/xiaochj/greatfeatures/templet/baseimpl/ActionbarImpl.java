@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 public interface ActionbarImpl {
 
+  //void setActionbarEnabled(boolean isEnable);
+
   boolean isActionbarEnabled();
 
   void setActionbarBackgroundColor(@ColorInt int color);
@@ -37,6 +39,8 @@ public interface ActionbarImpl {
   TextView setActionbarTitle(CharSequence title);
 
   TextView setActionbarTitle(@StringRes int text);
+
+  TextView setActionbarTitleColor(@ColorInt int color);
 
   TextView setBackClickListener(View.OnClickListener listener);
 

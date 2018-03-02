@@ -74,6 +74,11 @@ public class ActionBarView extends RelativeLayout {
     return this.mTitleView;
   }
 
+  public TextView setTitleColor(@ColorInt int color){
+    this.mTitleView.setTextColor(color);
+    return mTitleView;
+  }
+
   public TextView setRightActionView(@StringRes int text, int textColorResId,
       OnClickListener listener) {
     return this.setRightActionView(this.getContext().getResources().getText(text), textColorResId,
