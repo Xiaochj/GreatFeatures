@@ -26,7 +26,7 @@
     <activity android:name=".animations.pulltorefresh.PullToRefreshTest"></activity>
     <activity android:name=".ipc.aidl.AIdlClient"></activity>
     <activity android:name=".ipc.messenger.MessengerClient"></activity>
-    <activity android:name=".datastructure.SelectSort"></activity>
+    <activity android:name=".datastructure.SortTest"></activity>
   </application>
 
 </manifest>

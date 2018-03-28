@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.xiaochj.greatfeatures.datastructure.SelectSort;
+import com.xiaochj.greatfeatures.datastructure.SortTest;
 import com.xiaochj.greatfeatures.ipc.aidl.AIdlClient;
 import com.xiaochj.greatfeatures.animations.pulltorefresh.PullToRefreshTest;
 import com.xiaochj.greatfeatures.imageframe.glide.GlideTest;
@@ -68,7 +68,7 @@ public class MainActivity extends ListActivity {
         intent = new Intent(this, MessengerClient.class);
         startActivity(intent);
       case 8:
-        intent = new Intent(this, SelectSort.class);
+        intent = new Intent(this, SortTest.class);
         startActivity(intent);
         break;
     }
