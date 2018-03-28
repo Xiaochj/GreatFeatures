@@ -10,5 +10,6 @@
         <item>pull-to-refresh</item>
         <item>aidl</item>
         <item>messenger</item>
+        <item>选择排序</item>
     </string-array>
 </resources>
